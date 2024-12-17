@@ -9,29 +9,59 @@
     <!-- Link para o arquivo de CSS externo -->
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="body">
     <main class="container">
       <h3 class="header">Logo</h3>
       <section class="section">
         <div class="wrapper">
-          <span class="img">img1</span>
+          <span class="img">
+            <img src="./assets/img1.avif" />
+          </span>
           <div class="text">
-            <p>Título</p>
-            <p>Subtítulo</p>
+            <p class="title">Título</p>
+            <p class="description">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged.
+            </p>
           </div>
         </div>
         <div class="wrapper">
-          <span class="img">img2</span>
+          <span class="img">
+            <img src="./assets/img2.jpg" />
+          </span>
           <div class="text">
-            <p>Título</p>
-            <p>Subtítulo</p>
+            <p class="title">Título</p>
+            <p class="description">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged.
+            </p>
           </div>
         </div>
       </section>
       <button class="button" id="changeTextButton">botão que abre Popup</button>
     </main>
 
-    <!-- Link para o arquivo de JavaScript externo -->
+    <dialog id="myModal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <p>Imagem aleatória</p>
+      </div>
+      <div>
+        <p class="loading-message" style="display: none">
+          Carregando imagem...
+        </p>
+        <img src="" style="display: none" />
+      </div>
+    </dialog>
+
     <script src="script.js"></script>
   </body>
 </html>
