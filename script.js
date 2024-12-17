@@ -1,9 +1,14 @@
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("changeTextButton");
 var closeModal = document.getElementById("closeModal");
+var changeImageButton = document.getElementById("changeImageButton");
+
+var modalImage = modal.querySelector("img");
+var loadingMessage = modal.querySelector(".loading-message");
 
 btn.onclick = function () {
   modal.showModal();
+  fetchRandomImage();
 };
 
 closeModal.onclick = function () {
@@ -16,57 +21,29 @@ window.onclick = function (event) {
   }
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("myModal");
-  const closeModal = document.getElementById("closeModal");
-  const changeTextButton = document.getElementById("changeTextButton");
-  const modalImage = modal.querySelector("img");
-  const loadingMessage = modal.querySelector(".loading-message");
-
-  const fetchRandomImage = async () => {
-    try {
-      loadingMessage.style.display = "block";
-      modalImage.style.display = "none";
-
-      const response = await fetch("https://random.imagecdn.app/500/150");
-
-      if (!response.ok) {
-        throw new Error("Erro ao carregar imagem.");
-      }
-
-      modalImage.src = response.url;
-
-      modalImage.onload = () => {
-        loadingMessage.style.display = "none";
-        modalImage.style.display = "block";
-      };
-    } catch (error) {
-      console.error("Erro na requisição:", error);
-      loadingMessage.textContent = "Erro ao carregar imagem";
-    }
-  };
-
-  changeTextButton.onclick = () => {
-    modalImage.src = "";
+const fetchRandomImage = async () => {
+  try {
     loadingMessage.style.display = "block";
     modalImage.style.display = "none";
-    fetchRandomImage();
-    modal.showModal();
-  };
 
-  closeModal.onclick = () => {
-    modal.close();
-    modalImage.src = "";
-    loadingMessage.style.display = "none";
-    modalImage.style.display = "none";
-  };
+    const response = await fetch("https://random.imagecdn.app/500/150");
 
-  window.onclick = (event) => {
-    if (event.target === modal) {
-      modal.close();
-      modalImage.src = "";
-      loadingMessage.style.display = "none";
-      modalImage.style.display = "none";
+    if (!response.ok) {
+      throw new Error("Erro ao carregar imagem.");
     }
-  };
-});
+
+    modalImage.src = response.url;
+
+    modalImage.onload = () => {
+      loadingMessage.style.display = "none";
+      modalImage.style.display = "block";
+    };
+  } catch (error) {
+    console.error("Erro na requisição:", error);
+    loadingMessage.textContent = "Erro ao carregar imagem";
+  }
+};
+
+changeImageButton.onclick = () => {
+  fetchRandomImage();
+};
