@@ -1,0 +1,46 @@
+.header {
+  background-color: lightgray;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.container {
+  .section {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    width: 70%;
+    gap: 35px;
+
+    .wrapper {
+      border: 1px solid palevioletred;
+    }
+  }
+}
+
+.img {
+  height: 400px;
+  width: 400px;
+  border: 1px solid green;
+}
+
+.text {
+  border: 1px solid blue;
+  width: 400px;
+  height: 400px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  height: 50px;
+  width: 200px;
+  background-color: lightgray;
+  border-radius: 10%;
+}
